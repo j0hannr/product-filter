@@ -14,3 +14,10 @@ Uses [json-logic-js](https://github.com/jwadhams/json-logic-js) for storing logi
 Filters are Product specific (device identifier), can be add, edited and deleted. The Filters are defined by the system, usually are hard parameter such as `netArea` and `type`, but can be also softparameter, such as `centralheating`.
 
 Filteres are then tested againstthe specific Building, resulting and an overall rating `true`, `warning` & `error` and specific messages for each filter.
+
+## Testing
+Testing with Playwright.
+
+`npx playwright test --headed --debug`
+
+`npx playwright codegen`

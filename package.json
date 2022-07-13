@@ -5,7 +5,9 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "post-update": "yarn upgrade --latest"
+    "post-update": "yarn upgrade --latest",
+    "test": "playwright test",
+    "test:tests": "playwright test"
   },
   "dependencies": {
     "@hookform/error-message": "2.0.0",
@@ -17,5 +19,8 @@
   },
   "license": "MIT",
   "keywords": [],
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.23.3"
+  }
 }
