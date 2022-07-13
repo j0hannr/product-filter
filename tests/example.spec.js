@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 
 test('test', async ({ page }) => {
   // Go to http://localhost:3002/
-  await page.goto('http://localhost:3002/');
+  await page.goto('/');
   // Select type
   await page.locator('select[name="rules\\.0\\.parameter"]').selectOption('type');
   // Select >
