@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm, useFieldArray, Controller, useWatch } from "react-hook-form";
-import jsonLogic from "json-logic-js";
+import jsonLogic from "json-logic-js"; // will be used in the backend only (for security) both encryption || decryption
 
 /**
  *
@@ -42,13 +42,17 @@ export default function IndexPage() {
     state: ["warning", "error"],
   };
 
+  // building data to test filter against
   const buildingData = {
     type: "singlefamily",
     netArea: 232,
   };
 
+  // storing json Logic from form
+  // this should be the database later on
   const jsonlogic = [];
 
+  // write rule to json logic array
   watch().rules.map((item, index) => {
     jsonlogic.push({
       [item.operator]: [{ var: [item.parameter] }, item.value],
