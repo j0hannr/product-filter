@@ -18,6 +18,8 @@ Filteres are then tested againstthe specific Building, resulting and an overall 
 ## Testing
 Testing with Playwright.
 
+Run Test:
 `npx playwright test --headed --debug`
 
+Open Codegen to Create Tests:
 `npx playwright codegen`
