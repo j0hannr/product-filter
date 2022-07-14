@@ -21,3 +21,6 @@ Testing with Playwright.
 `npx playwright test --headed --debug`
 
 `npx playwright codegen`
+
+#### Testing with Playwright in a webserver
+[Article](https://github.com/dferber90/nextjs-playwright-example/tree/completed-setup)
