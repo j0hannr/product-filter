@@ -2,14 +2,9 @@ import Head from "next/head";
 import React from "react";
 import { useForm, useFieldArray, Controller, useWatch } from "react-hook-form";
 import jsonLogic from "json-logic-js"; // will be used in the backend only (for security) both encryption || decryption
-
-/**
- *
- * GitHub: https://github.com/jwadhams/json-logic-js
- * Playground: https://jsonlogic.com/play.html
- * Operators: https://jsonlogic.com/operations.html#logic-and-boolean-operations
- *
- */
+import buildingDataRaw from "../lib/product-filter/buildingdata-demo.json";
+import buildingFilter from "../lib/product-filter/buildingfilter.json";
+import FilterLogic from "../lib/product-filter/filter-logic";
 
 export default function IndexPage() {
   // form default values
@@ -34,24 +29,13 @@ export default function IndexPage() {
   const onSubmit = (data) => console.log("data", data);
 
   // from logic
-  const formContent = {
-    parameter: [
-      { slug: "netArea", name: "Grundfläche", values: ["0 - 10000"] },
-      {
-        slug: "type",
-        name: "Gebäudetyp",
-        values: ["singlefamily, multifamily, nonresidential"],
-      },
-    ],
-    operator: ["==", "!=", ">", "<"],
-    state: ["warning", "error"],
-  };
+  const formContent = buildingFilter;
 
-  // building data to test filter against
-  const buildingData = {
-    type: "singlefamily",
-    netArea: 232,
-  };
+  // flatten building Parameter
+  let buildingData = [];
+  buildingDataRaw.Parameter.map((item) => {
+    buildingData[item.name] = [item.value];
+  });
 
   // storing json Logic from form
   // this should be the database later on
@@ -63,6 +47,16 @@ export default function IndexPage() {
       [item.operator]: [{ var: [item.parameter] }, item.value],
     });
   });
+
+  // generate demo database output
+  let databaseFilterOutput = [];
+  databaseFilterOutput = watch().rules.map((form, index) => {
+    return {
+      ...form,
+      form: formContent.parameter.find(x => x.slug === form.parameter),
+      logic: jsonlogic[index]
+    }
+  })
 
   return (
     <>
@@ -102,7 +96,32 @@ export default function IndexPage() {
                         })}
                       </select>
 
-                      <input className="p-1 mr-2 mb-2 rounded bg-gray-100 text-sm h-6" {...register(`rules.${index}.value`, { required: true })} placeholder="values comma seperated for multiple" />
+                      {/* display options from values for this parameter */}
+                      {/* <p>{JSON.stringify(watch(`rules.${index}.parameter`))}</p> */}
+                      {/* <p>{JSON.stringify(formContent.parameter.find(x => x.slug === watch(`rules.${index}.parameter`))?.values)}</p> */}
+                      {/* <p>{JSON.stringify(formContent.parameter.find(x => x.slug === watch(`rules.${index}.parameter`))?.values.length)}</p> */}
+
+                      {/* if rules.${index}.value length > 1 the create option field else input field */}
+                      {formContent.parameter.find(x => x.slug === watch(`rules.${index}.parameter`))?.values.length > 1 ? (
+                        <select className="p-1 mr-2 mb-2 rounded bg-gray-100 text-sm h-6" {...register(`rules.${index}.value`, { required: true })}>
+                          <option value="value">select value</option>
+                          {formContent.parameter.find(x => x.slug === watch(`rules.${index}.parameter`))?.values.map((d, i) => {
+                            return (
+                              <option key={i.toString()} value={d}>
+                                {d}
+                              </option>
+                            );
+                          })}
+                        </select>
+                      ) : (
+                          <input
+                            className="p-1 mr-2 mb-2 rounded bg-gray-100 text-sm h-6"
+                            type="text"
+                            {...register(`rules.${index}.value`, { required: true })}
+                          />
+                        )}
+
+                      {/* <input className="p-1 mr-2 mb-2 rounded bg-gray-100 text-sm h-6" {...register(`rules.${index}.value`, { required: true })} placeholder="values comma seperated for multiple" /> */}
 
                       <select className="p-1 mr-2 rounded bg-gray-100 text-sm h-6" {...register(`rules.${index}.state`, { required: true })}>
                         <option value="operator">select operator</option>
@@ -116,7 +135,7 @@ export default function IndexPage() {
                       </select>
 
                       <input
-                      className="p-1 mr-2 mb-2 rounded bg-gray-100 text-sm h-6"
+                        className="p-1 mr-2 mb-2 rounded bg-gray-100 text-sm h-6"
                         {...register(`rules.${index}.fault_message`, {
                           required: true,
                         })}
@@ -124,7 +143,7 @@ export default function IndexPage() {
                       />
 
                       <input
-                      className="p-1 mr-2 mb-2 rounded bg-gray-100 text-sm h-6"
+                        className="p-1 mr-2 mb-2 rounded bg-gray-100 text-sm h-6"
                         {...register(`rules.${index}.success_message`, {
                           required: true,
                         })}
@@ -175,7 +194,11 @@ export default function IndexPage() {
             </details>
             <details className="text-xs text-neutral-500 p-1">
               <summary>Building Data</summary>
-              <pre>{JSON.stringify(buildingData, 0, 2)}</pre>
+              <pre>{JSON.stringify(buildingDataRaw, 0, 2)}</pre>
+            </details>
+            <details className="text-xs text-neutral-500 p-1">
+              <summary>Database Output</summary>
+              <pre>{JSON.stringify(databaseFilterOutput, 0, 2)}</pre>
             </details>
           </div>
           <div className="lg:w-1/2 bg-neutral-100 p-8 h-full max-h-screen ">
@@ -194,10 +217,14 @@ export default function IndexPage() {
                       <span className="text-gray-700">{jsonLogic.apply(rule, buildingData) ? watch().rules[index].success_message : watch().rules[index].fault_message}</span>
                     </p>
                     <p>
-                      <span className="text-gray-400">name in database </span> 
+                      <span className="text-gray-400">name in database </span>
                       <span className="text-gray-700">{watch().rules[index].parameter}</span>
                       <span className="text-gray-400"> result </span>
-                      <span className="text-gray-700" >{rule && JSON.stringify(jsonLogic.apply(rule, buildingData))}</span>
+                      <span className="text-gray-700">{rule && JSON.stringify(jsonLogic.apply(rule, buildingData))}</span>
+                    </p>
+                    <p>
+                      <span className="text-gray-400">building value </span>
+                      <span className="text-gray-700">{buildingData[watch().rules[index].parameter]}</span>
                     </p>
                     <pre className="text-xs text-neutral-500 p-1">{JSON.stringify(rule)}</pre>
                     <pre className="text-xs text-neutral-500 p-1">{JSON.stringify(buildingData)}</pre>
@@ -205,6 +232,10 @@ export default function IndexPage() {
                 </li>
               );
             })}
+            <details className="text-xs text-neutral-500 p-1">
+              <summary>Logic Output</summary>
+              <pre>{JSON.stringify(FilterLogic({ building: buildingDataRaw, filter: databaseFilterOutput}), 0, 2)}</pre>
+            </details>
           </div>
         </div>
       </div>

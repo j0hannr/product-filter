@@ -1,0 +1,13 @@
+{
+  "parameter": [
+    { "slug": "netArea", "name": "Grundfläche", "values": ["0 - 10000"] },
+    {
+      "slug": "type",
+      "name": "Gebäudetyp",
+      "values": ["singlefamily", "multifamily", "nonresidential"]
+    },
+    { "slug": "energiestandard", "name": "Energie Standard", "values": ["Saniert", "Unsaniert", "Teilsaniert", "nonesadasddsa"] }
+  ],
+  "operator": ["==", "!=", ">", "<"],
+  "state": ["warning", "error"]
+}

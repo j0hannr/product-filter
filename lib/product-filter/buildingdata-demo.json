@@ -1,0 +1,465 @@
+{
+  "id": "cl35uxqu4001109l6ciwmsxab",
+  "street": "Gutenbergstraße",
+  "streetNumber": "37",
+  "postcode": "42117",
+  "country": "de",
+  "city": "Wuppertal",
+  "type": "building",
+  "lat": 51.248722,
+  "lng": 7.128254,
+  "osmId": 262950570,
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [7.128166, 51.2487172],
+        [7.1282203, 51.2486297],
+        [7.1282792, 51.2486455],
+        [7.1282843, 51.248635],
+        [7.1283212, 51.248645],
+        [7.128316, 51.2486539],
+        [7.1283802, 51.2486706],
+        [7.128326, 51.248754],
+        [7.1283245, 51.2487583],
+        [7.1282785, 51.248746],
+        [7.1282767, 51.2487497],
+        [7.1282073, 51.2487322],
+        [7.1282098, 51.2487287],
+        [7.128166, 51.2487172]
+      ]
+    ]
+  },
+  "User": [
+    {
+      "relation": "apartmentowner",
+      "shared": null,
+      "verified": false,
+      "user": {
+        "firstName": "Johann",
+        "lastName": "Rohn",
+        "email": "johann.rohn@gmail.com",
+        "telefon": "015788730980"
+      }
+    }
+  ],
+  "Parameter": [
+    {
+      "name": "basement",
+      "value": "true",
+      "properties": null,
+      "createdBy": "cl39zls1j00020al6p70j8nuq"
+    },
+    {
+      "name": "basementInhabited",
+      "value": "false",
+      "properties": null,
+      "createdBy": "cl39zls1j00020al6p70j8nuq"
+    },
+    {
+      "name": "energiestandard",
+      "value": "Unsaniert",
+      "properties": null,
+      "createdBy": "cl39zls1j00020al6p70j8nuq"
+    },
+    {
+      "name": "_energymodel",
+      "value": null,
+      "properties": {
+        "total": {
+          "specific": {
+            "emissions": 67.385,
+            "finalenergy": 262,
+            "primaryenergy": 312.75000000000006
+          },
+          "emissions": 21.5632,
+          "calculation": "fromFlows",
+          "finalenergy": 83840,
+          "missingValues": false,
+          "primaryenergy": 100080.00000000001
+        },
+        "heating": {
+          "specific": {
+            "emissions": 58.8,
+            "finalenergy": 245,
+            "primaryenergy": 271.95000000000005
+          },
+          "emissions": 18.816,
+          "calculation": "fromFlows",
+          "finalenergy": 78400,
+          "missingValues": false,
+          "primaryenergy": 87024.00000000001
+        },
+        "hotwater": {
+          "specific": {
+            "emissions": 0,
+            "finalenergy": 0,
+            "primaryenergy": 0
+          },
+          "emissions": 0,
+          "calculation": "fromFlows",
+          "finalenergy": 0,
+          "missingValues": false,
+          "primaryenergy": 0
+        },
+        "electricity": {
+          "specific": {
+            "emissions": 8.584999999999999,
+            "finalenergy": 17,
+            "primaryenergy": 40.8
+          },
+          "emissions": 2.7472,
+          "calculation": "fromFlows",
+          "finalenergy": 5440,
+          "missingValues": false,
+          "primaryenergy": 13056
+        },
+        "talwaermeData": {
+          "heatDemand": null,
+          "isArrenberg": true,
+          "energyCarrier": "naturalgas",
+          "heatingCentrality": "zentral"
+        },
+        "fullEnergymodel": {
+          "buildings": [
+            {
+              "id": "cl35uxqu4001109l6ciwmsxab",
+              "name": "Gutenbergstraße 37",
+              "type": "multifamily",
+              "year": 1930,
+              "parent": null,
+              "netarea": 320,
+              "apartments": [
+                {
+                  "id": "cl35uxqu4001109l6ciwmsxab_dummyApartment",
+                  "name": "Gutenbergstraße 37_dummyApartment",
+                  "parent": "cl35uxqu4001109l6ciwmsxab",
+                  "netarea": 320
+                }
+              ],
+              "energiestandard": "Teilsaniert"
+            }
+          ],
+          "energyFlows": [
+            {
+              "to": "cl35uxqu4001109l6ciwmsxab1cc7e1280_heater",
+              "from": "gas_grid",
+              "value": 78400,
+              "energycarrier": "naturalgas"
+            },
+            {
+              "to": "cl35uxqu4001109l6ciwmsxab1cc7e1280_heatingDistribution",
+              "from": "cl35uxqu4001109l6ciwmsxab1cc7e1280_heater",
+              "value": 73527.68361581922,
+              "energycarrier": "heat"
+            },
+            {
+              "to": "cl35uxqu4001109l6ciwmsxab1cc7e1280_hotwaterDistribution",
+              "from": "cl35uxqu4001109l6ciwmsxab1cc7e1280_heater",
+              "value": 4872.31638418079,
+              "energycarrier": "heat"
+            },
+            {
+              "to": "cl35uxqu4001109l6ciwmsxab1cc7e1280_heating_cl35uxqu4001109l6ciwmsxab_dummyApartment",
+              "from": "cl35uxqu4001109l6ciwmsxab1cc7e1280_heatingDistribution",
+              "value": 73527.68361581922,
+              "energycarrier": "heat"
+            },
+            {
+              "to": "cl35uxqu4001109l6ciwmsxab1cc7e1280_tap_cl35uxqu4001109l6ciwmsxab_dummyApartment",
+              "from": "cl35uxqu4001109l6ciwmsxab1cc7e1280_hotwaterDistribution",
+              "value": 4872.31638418079,
+              "energycarrier": "heat"
+            },
+            {
+              "to": "cl35uxqu4001109l6ciwmsxab_dummyApartment_socket",
+              "from": "electricity_grid",
+              "value": 5440,
+              "energycarrier": "electricity"
+            }
+          ],
+          "energyNodes": [
+            {
+              "id": "cl35uxqu4001109l6ciwmsxab1cc7e1280_heater",
+              "name": "heater",
+              "type": "heater",
+              "propertyID": "cl35uxqu4001109l6ciwmsxab"
+            },
+            {
+              "id": "cl35uxqu4001109l6ciwmsxab1cc7e1280_heatingDistribution",
+              "name": "heatingDistribution",
+              "type": "heatDistribution",
+              "propertyID": "cl35uxqu4001109l6ciwmsxab"
+            },
+            {
+              "id": "cl35uxqu4001109l6ciwmsxab1cc7e1280_hotwaterDistribution",
+              "name": "hotwaterDistribution",
+              "type": "hotwaterDistribution",
+              "propertyID": "cl35uxqu4001109l6ciwmsxab"
+            },
+            {
+              "id": "cl35uxqu4001109l6ciwmsxab1cc7e1280_heating_cl35uxqu4001109l6ciwmsxab_dummyApartment",
+              "name": "heating_Gutenbergstraße 37_dummyApartment",
+              "type": "heating",
+              "propertyID": "cl35uxqu4001109l6ciwmsxab_dummyApartment"
+            },
+            {
+              "id": "cl35uxqu4001109l6ciwmsxab1cc7e1280_tap_cl35uxqu4001109l6ciwmsxab_dummyApartment",
+              "name": "tap_Gutenbergstraße 37_dummyApartment",
+              "type": "tap",
+              "propertyID": "cl35uxqu4001109l6ciwmsxab_dummyApartment"
+            },
+            {
+              "id": "cl35uxqu4001109l6ciwmsxab_dummyApartment_socket",
+              "name": "socket",
+              "type": "socket",
+              "propertyID": "cl35uxqu4001109l6ciwmsxab_dummyApartment"
+            }
+          ],
+          "uncertainties": {}
+        }
+      },
+      "createdBy": "cl39zls1j00020al6p70j8nuq"
+    },
+    {
+      "name": "levels",
+      "value": "2",
+      "properties": null,
+      "createdBy": "cl39zls1j00020al6p70j8nuq"
+    },
+    {
+      "name": "netArea",
+      "value": "320",
+      "properties": null,
+      "createdBy": "cl39zls1j00020al6p70j8nuq"
+    },
+    {
+      "name": "roofInhabited",
+      "value": "true",
+      "properties": null,
+      "createdBy": "cl39zls1j00020al6p70j8nuq"
+    },
+    {
+      "name": "roofType",
+      "value": "pitched",
+      "properties": null,
+      "createdBy": "cl39zls1j00020al6p70j8nuq"
+    },
+    {
+      "name": "type",
+      "value": "multifamily",
+      "properties": null,
+      "createdBy": "cl39zls1j00020al6p70j8nuq"
+    },
+    {
+      "name": "yearConstruction",
+      "value": "1930",
+      "properties": null,
+      "createdBy": "cl39zls1j00020al6p70j8nuq"
+    }
+  ],
+  "Option": [],
+  "denkmal": {
+    "Adresse": "Gutenbergstraße 37",
+    "Stadtbezirk": "Elberfeld-West",
+    "Denkmalnummer": "1030",
+    "Eintragungsdatum": "10.04.1987",
+    "Schutzumfang": "gesamtes Gebäude",
+    "Klassifizierung": "Denkmal",
+    "Beschreibung": "Das Gebäude Gutenbergstraße 37 ist ein dreigeschossiges, gegen Ende des 19. Jahrhunderts erbautes Wohnhaus mit gegliederter Putzfassade in spätklassizistischen Stilformen, seitlichem Hauseingang, durchlaufenden Brüstungsgesimsen, zweiachsigem Mittelrisalit mit Pfeilervorlagen und überdeckendem klassizistischem Zwerchgiebel, mit Dachgauben und Satteldach. Das Gebäude ist unverzichtbarer Bestandteil der historischen Bausubstanz im Arrenberger Viertel und somit ein Zeugnis für die Geschichte Elberfelds.\n\nErhaltung und Nutzung liegen daher gemäß § 2 (1) DSchG aus städtebaulichen, wissenschaftlichen und stadthistorischen Gründen im öffentlichen Interesse.\n\nDie Unterschutzstellung erstreckt sich auf das gesamte Gebäude.\n\n\n(Remus)",
+    "Link": "https://www.wuppertal.de/denkmalliste-online/Detail/Show/3364",
+    "images": ["https://www.wuppertal.de/denkmalliste-online/Image?filename=C5A3331D-35DC-11EA-B105-005056B11140\\DA7F11A1-3B66-11EA-B105-005056B11140\\gutenbergstrasse_037-1.JPG&amp;resize=True"]
+  },
+  "dataAccuracy": {
+    "percentage": 0.4,
+    "progress": 2,
+    "steps": [
+      {
+        "name": "baseData",
+        "fields": ["type", "netArea", "yearConstruction", "energiestandard"],
+        "rely": null,
+        "status": "complete"
+      },
+      {
+        "name": "buildingSchema",
+        "fields": ["roofType", "levels", "basement"],
+        "rely": null,
+        "status": "complete"
+      },
+      {
+        "name": "apartments",
+        "fields": ["apartments"],
+        "rely": "buildingSchema",
+        "status": "missing"
+      },
+      {
+        "name": "devices",
+        "fields": ["none"],
+        "rely": "buildingSchema",
+        "status": "missing"
+      },
+      {
+        "name": "consumption",
+        "fields": ["none"],
+        "rely": "buildingSchema",
+        "status": "missing"
+      }
+    ],
+    "missingFiels": ["apartments", "apartments", "none", "none"]
+  },
+  "Apartment": [],
+  "energymodel": {
+    "total": {
+      "finalenergy": 83840,
+      "emissions": 21.5632,
+      "primaryenergy": 100080.00000000001,
+      "missingValues": false,
+      "calculation": "fromFlows",
+      "specific": {
+        "finalenergy": 262,
+        "emissions": 67.385,
+        "primaryenergy": 312.75000000000006
+      }
+    },
+    "heating": {
+      "finalenergy": 78400,
+      "emissions": 18.816,
+      "primaryenergy": 87024.00000000001,
+      "missingValues": false,
+      "calculation": "fromFlows",
+      "specific": {
+        "finalenergy": 245,
+        "emissions": 58.8,
+        "primaryenergy": 271.95000000000005
+      }
+    },
+    "hotwater": {
+      "finalenergy": 0,
+      "emissions": 0,
+      "primaryenergy": 0,
+      "missingValues": false,
+      "calculation": "fromFlows",
+      "specific": {
+        "finalenergy": 0,
+        "emissions": 0,
+        "primaryenergy": 0
+      }
+    },
+    "electricity": {
+      "finalenergy": 5440,
+      "emissions": 2.7472,
+      "primaryenergy": 13056,
+      "missingValues": false,
+      "calculation": "fromFlows",
+      "specific": {
+        "finalenergy": 17,
+        "emissions": 8.584999999999999,
+        "primaryenergy": 40.8
+      }
+    },
+    "fullEnergymodel": {
+      "buildings": [
+        {
+          "name": "Gutenbergstraße 37",
+          "id": "cl35uxqu4001109l6ciwmsxab",
+          "netarea": 320,
+          "parent": null,
+          "type": "multifamily",
+          "year": 1930,
+          "energiestandard": "Teilsaniert",
+          "apartments": [
+            {
+              "name": "Gutenbergstraße 37_dummyApartment",
+              "id": "cl35uxqu4001109l6ciwmsxab_dummyApartment",
+              "netarea": 320,
+              "parent": "cl35uxqu4001109l6ciwmsxab"
+            }
+          ]
+        }
+      ],
+      "energyNodes": [
+        {
+          "name": "heater",
+          "id": "cl35uxqu4001109l6ciwmsxab1cc7e122_heater",
+          "type": "heater",
+          "propertyID": "cl35uxqu4001109l6ciwmsxab"
+        },
+        {
+          "name": "heatingDistribution",
+          "id": "cl35uxqu4001109l6ciwmsxab1cc7e122_heatingDistribution",
+          "type": "heatDistribution",
+          "propertyID": "cl35uxqu4001109l6ciwmsxab"
+        },
+        {
+          "name": "hotwaterDistribution",
+          "id": "cl35uxqu4001109l6ciwmsxab1cc7e122_hotwaterDistribution",
+          "type": "hotwaterDistribution",
+          "propertyID": "cl35uxqu4001109l6ciwmsxab"
+        },
+        {
+          "name": "heating_Gutenbergstraße 37_dummyApartment",
+          "id": "cl35uxqu4001109l6ciwmsxab1cc7e122_heating_cl35uxqu4001109l6ciwmsxab_dummyApartment",
+          "type": "heating",
+          "propertyID": "cl35uxqu4001109l6ciwmsxab_dummyApartment"
+        },
+        {
+          "name": "tap_Gutenbergstraße 37_dummyApartment",
+          "id": "cl35uxqu4001109l6ciwmsxab1cc7e122_tap_cl35uxqu4001109l6ciwmsxab_dummyApartment",
+          "type": "tap",
+          "propertyID": "cl35uxqu4001109l6ciwmsxab_dummyApartment"
+        },
+        {
+          "name": "socket",
+          "id": "cl35uxqu4001109l6ciwmsxab_dummyApartment_socket",
+          "type": "socket",
+          "propertyID": "cl35uxqu4001109l6ciwmsxab_dummyApartment"
+        }
+      ],
+      "energyFlows": [
+        {
+          "from": "gas_grid",
+          "to": "cl35uxqu4001109l6ciwmsxab1cc7e122_heater",
+          "energycarrier": "naturalgas",
+          "value": 78400
+        },
+        {
+          "from": "cl35uxqu4001109l6ciwmsxab1cc7e122_heater",
+          "to": "cl35uxqu4001109l6ciwmsxab1cc7e122_heatingDistribution",
+          "energycarrier": "heat",
+          "value": 73527.68361581922
+        },
+        {
+          "from": "cl35uxqu4001109l6ciwmsxab1cc7e122_heater",
+          "to": "cl35uxqu4001109l6ciwmsxab1cc7e122_hotwaterDistribution",
+          "energycarrier": "heat",
+          "value": 4872.31638418079
+        },
+        {
+          "from": "cl35uxqu4001109l6ciwmsxab1cc7e122_heatingDistribution",
+          "to": "cl35uxqu4001109l6ciwmsxab1cc7e122_heating_cl35uxqu4001109l6ciwmsxab_dummyApartment",
+          "energycarrier": "heat",
+          "value": 73527.68361581922
+        },
+        {
+          "from": "cl35uxqu4001109l6ciwmsxab1cc7e122_hotwaterDistribution",
+          "to": "cl35uxqu4001109l6ciwmsxab1cc7e122_tap_cl35uxqu4001109l6ciwmsxab_dummyApartment",
+          "energycarrier": "heat",
+          "value": 4872.31638418079
+        },
+        {
+          "from": "electricity_grid",
+          "to": "cl35uxqu4001109l6ciwmsxab_dummyApartment_socket",
+          "energycarrier": "electricity",
+          "value": 5440
+        }
+      ],
+      "uncertainties": {}
+    },
+    "talwaermeData": {
+      "isArrenberg": true,
+      "heatDemand": null,
+      "energyCarrier": "naturalgas",
+      "heatingCentrality": "zentral"
+    }
+  }
+}
